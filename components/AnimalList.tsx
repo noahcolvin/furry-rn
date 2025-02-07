@@ -11,15 +11,13 @@ export default function AnimalList() {
   ];
 
   return (
-    <ScrollView horizontal={true} style={styles.scrollView}>
-      {animals.map(animal => {
-        return (
-          <View key={animal.id} style={[styles.item]}>
-            <Image source={animal.image} style={styles.image} />
-            <Text style={styles.text}>{animal.type}</Text>
-          </View>
-        );
-      })}
+    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
+      {animals.map(animal => (
+        <View key={animal.id} style={[styles.animal]}>
+          <Image source={animal.image} style={styles.image} />
+          <Text style={styles.text}>{animal.type}</Text>
+        </View>
+      ))}
     </ScrollView>
   );
 }
@@ -29,7 +27,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingTop: 16,
   },
-  item: {
+  animal: {
     width: 100,
     height: 100,
     justifyContent: 'center',
