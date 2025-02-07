@@ -1,41 +1,53 @@
-import { ScrollView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, View, Image, Text, StyleSheet } from 'react-native';
 
 export default function AnimalList() {
-  const items = [
-    { id: 1, color: 'red', text: 'Item 1' },
-    { id: 2, color: 'blue', text: 'Item 2' },
-    { id: 3, color: 'green', text: 'Item 3' },
-    { id: 4, color: 'red', text: 'Item 1' },
-    { id: 5, color: 'blue', text: 'Item 2' },
-    { id: 6, color: 'green', text: 'Item 3' },
-    // Add more items as needed
+  const animals = [
+    { id: 1, type: 'dog', image: require(`../assets/images/animal-types/dog.jpg`) },
+    { id: 2, type: 'cat', image: require(`../assets/images/animal-types/cat.jpg`) },
+    { id: 3, type: 'hamster', image: require(`../assets/images/animal-types/hamster.jpg`) },
+    { id: 4, type: 'snake', image: require(`../assets/images/animal-types/snake.jpg`) },
+    { id: 5, type: 'ferret', image: require(`../assets/images/animal-types/ferret.jpg`) },
+    { id: 6, type: 'fish', image: require(`../assets/images/animal-types/fish.jpg`) },
   ];
 
   return (
     <ScrollView horizontal={true} style={styles.scrollView}>
-      {items.map(item => (
-        <View key={item.id} style={[styles.item, { backgroundColor: item.color }]}>
-          <Text style={styles.text}>{item.text}</Text>
-        </View>
-      ))}
+      {animals.map(animal => {
+        return (
+          <View key={animal.id} style={[styles.item]}>
+            <Image source={animal.image} style={styles.image} />
+            <Text style={styles.text}>{animal.type}</Text>
+          </View>
+        );
+      })}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   scrollView: {
-    padding: 10,
+    paddingBottom: 16,
+    paddingTop: 16,
   },
   item: {
     width: 100,
     height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    margin: 5,
     borderRadius: 20,
   },
+  image: {
+    width: 100,
+    height: 100,
+    borderColor: '#ccc',
+    borderRadius: 20,
+    borderWidth: 1,
+  },
   text: {
-    color: 'white',
-    fontSize: 16,
+    fontSize: 14,
+    fontWeight: 'bold',
+    marginTop: 5,
+    textTransform: 'capitalize',
   },
 });
