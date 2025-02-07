@@ -1,5 +1,6 @@
 import AnimalList from '@/components/AnimalList';
 import ButtonList from '@/components/ButtonList';
+import MyFriendList from '@/components/MyFriendList';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
 export default function Index() {
@@ -13,6 +14,7 @@ export default function Index() {
         <Text style={styles.headerText}>Your favorites</Text>
 
         <Text style={styles.headerText}>Your furry friends</Text>
+        <MyFriendList />
       </ScrollView>
     </View>
   );
