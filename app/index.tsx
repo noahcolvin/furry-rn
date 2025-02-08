@@ -1,5 +1,6 @@
 import AnimalList from '@/components/AnimalList';
 import ButtonList from '@/components/ButtonList';
+import MyFavoriteItems from '@/components/MyFavoriteItems';
 import MyFriendList from '@/components/MyFriendList';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
@@ -12,7 +13,7 @@ export default function Index() {
         <Text style={styles.headerText}>What furry friend brought you here today?</Text>
         <AnimalList />
         <Text style={styles.headerText}>Your favorites</Text>
-
+        <MyFavoriteItems />
         <Text style={styles.headerText}>Your furry friends</Text>
         <MyFriendList />
       </ScrollView>
@@ -25,11 +26,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    padding: 16,
+    paddingVertical: 16,
     backgroundColor: '#fff',
   },
   headerText: {
     fontSize: 16,
     fontWeight: 'bold',
+    marginHorizontal: 8,
+    marginTop: 4,
   },
 });
