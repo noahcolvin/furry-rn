@@ -1,6 +1,6 @@
 import AnimalList from '@/components/AnimalList';
 import ButtonList from '@/components/ButtonList';
-import MyFavoriteItems from '@/components/MyFavoriteItems';
+import MyFavoriteItems from '@/features/storeItems/presentation/MyFavoriteItems';
 import MyFriendList from '@/components/MyFriendList';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
 

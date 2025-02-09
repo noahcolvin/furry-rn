@@ -1,4 +1,4 @@
-import { useStoreItemData } from '@/zustand/itemStore';
+import { useStoreItemData } from '@/features/storeItems/data/myFavoriteItemsStore';
 import { Button } from '@rneui/base';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';

@@ -1,15 +1,6 @@
 import { create } from 'zustand';
-import { getMyFavoriteItems } from '@/api/my-favorite-items';
-import { StoreItem } from '@/models/StoreItem';
-
-interface StoreItemState {
-  loading: boolean;
-  success: boolean;
-  error: boolean;
-  data: StoreItem[] | null;
-  errorData: string | null;
-  fetchFavorites: () => Promise<void>;
-}
+import { getMyFavoriteItems } from '@/features/storeItems/data/myFavoriteItemsApi';
+import { StoreItemState } from '@/features/storeItems/domain/StoreItemState';
 
 const initialState: StoreItemState = {
   loading: false,

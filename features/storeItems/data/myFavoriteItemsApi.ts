@@ -1,9 +1,10 @@
-import { StoreItem } from '@/models/StoreItem';
-import { apiClient } from './client';
+import { StoreItem } from '@/features/storeItems/domain/StoreItem';
+import { apiClient } from '../../../shared/data/client';
 
 export const getMyFavoriteItems = async (): Promise<StoreItem[]> => {
   const response = await apiClient('/my-favorite-items');
   const json = (await response.json()) as any[];
+
   return json.map((item: any) => ({
     id: item.id,
     name: item.name,
