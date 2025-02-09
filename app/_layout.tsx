@@ -11,6 +11,12 @@ export default function RootLayout() {
           headerLeft: () => <Image source={require('../assets/images/header_logo.png')} style={{ width: 120, height: 40, marginLeft: 0 }} />,
         }}
       />
+      <Stack.Screen
+        name="item/[id]"
+        options={{
+          title: 'Item Details',
+        }}
+      />
     </Stack>
   );
 }
