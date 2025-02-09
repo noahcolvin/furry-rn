@@ -1,22 +1,31 @@
-import { getMyFriends } from '@/api/my-friends';
-import { MyFriend } from '@/models/MyFriend';
-import { useEffect, useState } from 'react';
+import { Link } from 'expo-router';
+import { useEffect } from 'react';
 import { ScrollView, View, Image, Text, StyleSheet } from 'react-native';
+import { useMyFriendData } from '../data/myFriendsStore';
 
 export default function MyFriendList() {
-  const [friends, setFriends] = useState<MyFriend[]>([]);
+  const myFriendData = useMyFriendData();
 
   useEffect(() => {
-    getMyFriends().then(friends => setFriends(friends));
+    myFriendData.fetchMyFriends();
   }, []);
 
   return (
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-      {friends.map(friend => (
-        <View key={friend.name} style={styles.animal}>
-          <Image source={{ uri: friend.image }} style={styles.image} />
-          <Text style={styles.text}>{friend.name}</Text>
-        </View>
+      {myFriendData.data?.map(friend => (
+        <Link
+          key={friend.name}
+          href={{
+            pathname: '/friend/[name]',
+            params: { name: friend.name },
+          }}
+          style={styles.animalLink}
+        >
+          <View style={styles.animal}>
+            <Image source={{ uri: friend.image }} style={styles.image} />
+            <Text style={styles.text}>{friend.name}</Text>
+          </View>
+        </Link>
       ))}
     </ScrollView>
   );
@@ -27,18 +36,18 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingTop: 16,
   },
+  animalLink: { margin: 5 },
   animal: {
     width: 200,
     justifyContent: 'flex-start', // Align items to the top
     alignItems: 'flex-start',
-    margin: 5,
     borderColor: '#ccc',
     borderRadius: 20,
     borderWidth: 1,
   },
   image: {
     width: 200,
-    height: 100,
+    height: 150,
     borderColor: '#ccc',
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

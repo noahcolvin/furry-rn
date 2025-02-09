@@ -1,7 +1,7 @@
 import AnimalList from '@/components/AnimalList';
 import ButtonList from '@/components/ButtonList';
 import MyFavoriteItems from '@/features/storeItems/presentation/MyFavoriteItems';
-import MyFriendList from '@/components/MyFriendList';
+import MyFriendList from '@/features/myFriends/presentation/MyFriendList';
 import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
 
 export default function Index() {

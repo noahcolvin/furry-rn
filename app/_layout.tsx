@@ -17,6 +17,12 @@ export default function RootLayout() {
           title: 'Item Details',
         }}
       />
+      <Stack.Screen
+        name="friend/[name]"
+        options={{
+          title: 'My Friend',
+        }}
+      />
     </Stack>
   );
 }
