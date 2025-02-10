@@ -1,6 +1,6 @@
 const API_BASE_URL = 'http://10.0.2.2:54321/functions/v1';
 
-export const apiClient = async (endpoint: string, options: RequestInit = {}) => {
+export const apiClient = async (endpoint: string, searchParams: URLSearchParams | undefined = undefined, options: RequestInit = {}) => {
   const config = {
     method: 'GET', // Default to GET method
     ...options,
@@ -10,5 +10,5 @@ export const apiClient = async (endpoint: string, options: RequestInit = {}) => 
     },
   };
 
-  return fetch(`${API_BASE_URL}${endpoint}`, config);
+  return fetch(`${API_BASE_URL}${endpoint}?${searchParams}`, config);
 };

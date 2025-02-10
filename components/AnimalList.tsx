@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { ScrollView, View, Image, Text, StyleSheet } from 'react-native';
 
 export default function AnimalList() {
@@ -13,10 +14,19 @@ export default function AnimalList() {
   return (
     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
       {animals.map(animal => (
-        <View key={animal.id} style={[styles.animal]}>
-          <Image source={animal.image} style={styles.image} />
-          <Text style={styles.text}>{animal.type}</Text>
-        </View>
+        <Link
+          key={animal.id}
+          href={{
+            pathname: '/store',
+            params: { animal: animal.type },
+          }}
+          style={styles.animalLink}
+        >
+          <View style={[styles.animal]}>
+            <Image source={animal.image} style={styles.image} />
+            <Text style={styles.text}>{animal.type}</Text>
+          </View>
+        </Link>
       ))}
     </ScrollView>
   );
@@ -27,12 +37,12 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     paddingTop: 16,
   },
+  animalLink: { margin: 5 },
   animal: {
     width: 100,
     height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 5,
     borderRadius: 20,
   },
   image: {

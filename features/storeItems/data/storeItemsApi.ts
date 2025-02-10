@@ -1,8 +1,12 @@
 import { StoreItem } from '@/features/storeItems/domain/StoreItem';
 import { apiClient } from '../../../shared/data/client';
 
-export const getStoreItems = async (): Promise<StoreItem[]> => {
-  const response = await apiClient('/items');
+export const getStoreItems = async ({ animal, product }: GetStoreItemsParams = {}): Promise<StoreItem[]> => {
+  const params = new URLSearchParams();
+  if (animal) params.append('animal', animal);
+  if (product) params.append('product', product);
+
+  const response = await apiClient('/items', params);
   const json = (await response.json()) as any[];
 
   return json.map((item: any) => ({

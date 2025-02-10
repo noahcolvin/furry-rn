@@ -9,7 +9,7 @@ const initialState: StoreItemState = {
   error: false,
   data: null,
   errorData: null,
-  fetchStoreItems: function (): Promise<void> {
+  fetchStoreItems: function ({ animal, product }: GetStoreItemsParams): Promise<void> {
     throw new Error('Function not implemented.');
   },
 };
@@ -17,10 +17,10 @@ const initialState: StoreItemState = {
 export const useStoreItemData = create<StoreItemState>((set, get) => ({
   ...initialState,
 
-  fetchStoreItems: async () => {
+  fetchStoreItems: async ({ animal, product }: GetStoreItemsParams) => {
     set({ loading: true });
     try {
-      const res = await getStoreItems();
+      const res = await getStoreItems({ animal, product });
       set({ loading: false, success: true, data: res });
     } catch (err: any) {
       console.error('Error in data fetch:', err);
