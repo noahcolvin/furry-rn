@@ -10,7 +10,7 @@ export default function Id() {
   const item = data?.find(item => item.id === id);
 
   useEffect(() => {
-    fetchStoreItems({animal: 'all', product: 'all'});
+    if (!item) fetchStoreItems({ animal: 'all', product: 'all' });
   }, []);
 
   return (

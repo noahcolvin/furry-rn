@@ -1,5 +1,7 @@
 import { Stack } from 'expo-router';
 import { Image } from 'react-native';
+import Feather from '@expo/vector-icons/Feather';
+import CartIcon from '@/features/cart/presentation/CartIcon';
 
 export default function RootLayout() {
   return (
@@ -9,12 +11,14 @@ export default function RootLayout() {
         options={{
           title: '',
           headerLeft: () => <Image source={require('../assets/images/header_logo.png')} style={{ width: 120, height: 40, marginLeft: 0 }} />,
+          headerRight: () => <CartIcon />,
         }}
       />
       <Stack.Screen
         name="item/[id]"
         options={{
           title: 'Item Details',
+          headerRight: () => <CartIcon />,
         }}
       />
       <Stack.Screen
@@ -27,6 +31,13 @@ export default function RootLayout() {
         name="store"
         options={{
           title: 'Store',
+          headerRight: () => <CartIcon />,
+        }}
+      />
+      <Stack.Screen
+        name="cart"
+        options={{
+          title: 'Cart',
         }}
       />
     </Stack>

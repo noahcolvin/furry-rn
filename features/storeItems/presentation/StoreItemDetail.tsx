@@ -3,10 +3,12 @@ import { StoreItem } from '../domain/StoreItem';
 import { Image, LayoutChangeEvent, Text, View, StyleSheet } from 'react-native';
 import { Button } from '@rneui/base';
 import { useEffect, useState } from 'react';
+import { useCartData } from '@/features/cart/data/cartDataStore';
 
 export default function StoreItemDetail({ item }: { item: StoreItem }) {
   const [imageHeight, setImageHeight] = useState(0);
   const [containerDimensions, setContainerDimensions] = useState({ width: 0, height: 0 });
+  const addToCart = useCartData(state => state.addToCart);
 
   useEffect(() => {
     Image.getSize(
@@ -59,6 +61,7 @@ export default function StoreItemDetail({ item }: { item: StoreItem }) {
           marginVertical: 10,
         }}
         titleStyle={{ fontWeight: 'bold' }}
+        onPress={() => addToCart(item)}
       />
       <Text style={styles.title} numberOfLines={1}>
         About

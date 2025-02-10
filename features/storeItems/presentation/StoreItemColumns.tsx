@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useStoreItemData } from '../data/storeItemsStore';
 import { StoreItem } from '../domain/StoreItem';
 import StoreItemListing from './StoreItemListing';
-import { FlatList } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import { useLocalSearchParams } from 'expo-router';
 
 export default function StoreItemColumns() {
@@ -19,5 +19,11 @@ export default function StoreItemColumns() {
 
   const renderItem = ({ item }: { item: StoreItem }) => <StoreItemListing item={item} />;
 
-  return <FlatList data={storeItemData} renderItem={renderItem} numColumns={2} keyExtractor={(item, index) => index.toString()} />;
+  return <FlatList data={storeItemData} renderItem={renderItem} numColumns={2} keyExtractor={(item, index) => index.toString()} style={styles.flatList} />;
 }
+
+const styles = StyleSheet.create({
+  flatList: {
+    margin: 'auto',
+  },
+});
