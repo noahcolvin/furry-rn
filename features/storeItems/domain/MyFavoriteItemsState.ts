@@ -1,7 +1,6 @@
 import { StoreItem } from "./StoreItem";
 
-export interface StoreItemState extends AsyncState {
+export interface MyFavoriteItemsState extends AsyncState {
   data: StoreItem[] | null;
-  fetchStoreItems: () => Promise<void>;
   fetchFavoriteItems: () => Promise<void>;
 }

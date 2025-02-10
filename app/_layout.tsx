@@ -23,6 +23,12 @@ export default function RootLayout() {
           title: 'My Friend',
         }}
       />
+      <Stack.Screen
+        name="store"
+        options={{
+          title: 'Store',
+        }}
+      />
     </Stack>
   );
 }

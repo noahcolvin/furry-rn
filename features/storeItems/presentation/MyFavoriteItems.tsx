@@ -1,22 +1,22 @@
-import { useStoreItemData } from '@/features/storeItems/data/myFavoriteItemsStore';
 import { LinearProgress } from '@rneui/base';
 import { useEffect } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import StoreItemListing from './StoreItemListing';
+import { useMyFavoriteItemsData } from '../data/myFavoriteItemsStore';
 
 export default function MyFavoriteItems() {
-  const getStoreItemData = useStoreItemData();
+  const favoriteItemData = useMyFavoriteItemsData();
 
   useEffect(() => {
-    getStoreItemData.fetchFavorites();
+    favoriteItemData.fetchFavoriteItems();
   }, []);
 
   return (
     <>
-      {getStoreItemData.loading && <LinearProgress style={styles.progressBar} />}
-      {getStoreItemData.success && (
+      {favoriteItemData.loading && <LinearProgress style={styles.progressBar} />}
+      {favoriteItemData.success && (
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
-          {getStoreItemData.data?.map(item => (
+          {favoriteItemData.data?.map(item => (
             <StoreItemListing key={item.name} item={item} />
           ))}
         </ScrollView>

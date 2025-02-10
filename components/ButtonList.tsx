@@ -1,14 +1,15 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
+import { router } from 'expo-router';
 
 export default function ButtonList() {
   const buttons = [
-    { id: 1, text: 'Shop' },
-    { id: 2, text: "Today's Specials" },
-    { id: 3, text: 'Grooming' },
-    { id: 4, text: 'Locations' },
-    { id: 5, text: 'Rescue' },
-    { id: 6, text: 'Vet Finder' },
+    { id: 1, text: 'Shop', href: '/store' },
+    { id: 2, text: "Today's Specials", href: '/specials' },
+    { id: 3, text: 'Grooming', href: '/grooming' },
+    { id: 4, text: 'Locations', href: '/locations' },
+    { id: 5, text: 'Rescue', href: '/rescue' },
+    { id: 6, text: 'Vet Finder', href: '/vet' },
   ];
 
   return (
@@ -18,6 +19,7 @@ export default function ButtonList() {
           key={button.id}
           title={button.text}
           type="outline"
+          onPress={() => { router.push(button.href as any);}}
           buttonStyle={{
             borderWidth: 1,
             borderColor: '#ccc',

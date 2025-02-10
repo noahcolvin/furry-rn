@@ -1,4 +1,4 @@
-import { useStoreItemData } from '@/features/storeItems/data/myFavoriteItemsStore';
+import { useStoreItemData } from '@/features/storeItems/data/storeItemsStore';
 import StoreItemDetail from '@/features/storeItems/presentation/StoreItemDetail';
 import { useLocalSearchParams } from 'expo-router';
 import { ScrollView, StyleSheet } from 'react-native';
