@@ -12,10 +12,10 @@ export default function StoreItemColumns() {
   const { animal: animalParam, product: productParam }: { animal: string; product: string } = useLocalSearchParams();
 
   useEffect(() => {
-    const animal = animalParam || '';
-    const product = productParam || '';
-    fetchStoreItems({animal, product});
-  }, [animalParam, productParam]);
+    const animal = animalParam || 'all';
+    const product = productParam || 'all';
+    fetchStoreItems({ animal, product });
+  }, []);
 
   const renderItem = ({ item }: { item: StoreItem }) => <StoreItemListing item={item} />;
 

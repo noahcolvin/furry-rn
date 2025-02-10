@@ -1,4 +1,4 @@
 interface GetStoreItemsParams {
-  animal?: string;
-  product?: string;
+  animal?: string | null;
+  product?: string | null;
 }

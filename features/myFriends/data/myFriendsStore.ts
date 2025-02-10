@@ -17,13 +17,13 @@ export const useMyFriendData = create<MyFriendState>((set, get) => ({
   ...initialState,
 
   fetchMyFriends: async () => {
-    set({ ...initialState, loading: true });
+    set({ loading: true });
     try {
       const res = await getMyFriends();
-      set({ ...initialState, success: true, data: res });
+      set({ loading: false, success: true, data: res });
     } catch (err: any) {
       console.error('Error in data fetch:', err);
-      set({ ...initialState, error: true, errorData: err.message });
+      set({ loading: false, success: false, error: true, errorData: err.message });
     }
   },
 }));
