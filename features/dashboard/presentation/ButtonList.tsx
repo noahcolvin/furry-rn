@@ -1,6 +1,7 @@
 import { ScrollView, StyleSheet } from 'react-native';
 import { Button } from '@rneui/themed';
 import { router } from 'expo-router';
+import { MainColor } from '@/shared/colors';
 
 export default function ButtonList() {
   const buttons = [
@@ -13,22 +14,22 @@ export default function ButtonList() {
   ];
 
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.scrollView}>
+    <ScrollView
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      style={styles.scrollView}
+    >
       {buttons.map(button => (
         <Button
           key={button.id}
           title={button.text}
           type="outline"
-          onPress={() => { router.push(button.href as any);}}
-          buttonStyle={{
-            borderWidth: 1,
-            borderColor: '#ccc',
-            borderRadius: 30,
-            paddingHorizontal: 20,
+          onPress={() => {
+            router.push(button.href as any);
           }}
-          containerStyle={{
-            marginHorizontal: 5,
-          }}
+          buttonStyle={styles.button}
+          containerStyle={styles.buttonContainer}
+          titleStyle={styles.buttonTitle}
         />
       ))}
     </ScrollView>
@@ -41,11 +42,11 @@ const styles = StyleSheet.create({
     paddingTop: 16,
   },
   button: {
-    width: 100,
-    height: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 5,
-    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 30,
+    paddingHorizontal: 20,
   },
+  buttonContainer: { marginHorizontal: 5 },
+  buttonTitle: { color: MainColor, marginHorizontal: 20 },
 });

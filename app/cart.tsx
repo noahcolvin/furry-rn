@@ -1,17 +1,16 @@
 import { useCartData } from '@/features/cart/data/cartDataStore';
 import CartItem from '@/features/cart/presentation/CartItem';
 import CartSummary from '@/features/cart/presentation/CartSummary';
+import { MainColor } from '@/shared/colors';
 import { Button, Divider } from '@rneui/base';
 import { router } from 'expo-router';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
 
 export default function Cart() {
-  const cartData = useCartData((state) => state.data);
+  const cartData = useCartData(state => state.data);
   const itemArray = Array.from(cartData.items.keys());
 
   const clearCart = useCartData(state => state.clearCart);
-
-  console.log(itemArray.length);
 
   return (
     <View style={styles.container}>
@@ -20,7 +19,9 @@ export default function Cart() {
       <FlatList
         data={itemArray}
         keyExtractor={(item, _) => item.id}
-        renderItem={({ item }) => <CartItem item={item} count={cartData.items.get(item) ?? 0} />}
+        renderItem={({ item }) => (
+          <CartItem item={item} count={cartData.items.get(item) ?? 0} />
+        )}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
       />
@@ -30,7 +31,7 @@ export default function Cart() {
         title="Complete Order"
         buttonStyle={styles.button}
         containerStyle={styles.buttonContainer}
-        titleStyle={{ fontWeight: 'bold' }}
+        titleStyle={styles.buttonTitle}
         onPress={() => {
           clearCart();
           router.replace('/');
@@ -55,12 +56,15 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: MainColor,
     borderWidth: 2,
     borderColor: 'white',
     borderRadius: 30,
   },
   buttonContainer: {
     marginVertical: 10,
+  },
+  buttonTitle: {
+    fontWeight: 'bold',
   },
 });

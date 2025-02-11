@@ -37,7 +37,6 @@ export const useStoreItemData = create<StoreItemState>((set, get) => ({
         : product
       : currentState.product;
     const searchFilter = search;
-    console.log('searchFilter',searchFilter);
 
     set({
       loading: true,

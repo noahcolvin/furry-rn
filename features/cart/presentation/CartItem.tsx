@@ -1,5 +1,6 @@
 import { useCartData } from '@/features/cart/data/cartDataStore';
 import { StoreItem } from '@/features/storeItems/domain/StoreItem';
+import { MainColor } from '@/shared/colors';
 import { Button } from '@rneui/base';
 import { Text, StyleSheet, View, Image } from 'react-native';
 
@@ -17,9 +18,23 @@ export default function CartItem(props: { item: StoreItem; count: number }) {
       <View style={styles.middle}>
         <Text style={styles.name}>{item.name}</Text>
         <View style={styles.quantityGroup}>
-          <Button title="-" type="outline" onPress={() => removeFromCart(item)} buttonStyle={styles.addMinusButton} containerStyle={styles.addMinusButtonContainer} />
+          <Button
+            title="-"
+            type="outline"
+            onPress={() => removeFromCart(item)}
+            buttonStyle={styles.button}
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.buttonTitle}
+          />
           <Text>{count}</Text>
-          <Button title="+" type="outline" onPress={() => addToCart(item)} buttonStyle={styles.addMinusButton} containerStyle={styles.addMinusButtonContainer} />
+          <Button
+            title="+"
+            type="outline"
+            onPress={() => addToCart(item)}
+            buttonStyle={styles.button}
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.buttonTitle}
+          />
         </View>
       </View>
       <View>
@@ -51,15 +66,22 @@ const styles = StyleSheet.create({
   quantityGroup: {
     flexDirection: 'row',
     flex: 1,
-
   },
   name: {
     fontSize: 14,
     flex: 1,
     marginBottom: 5,
   },
-  addMinusButton: { borderWidth: 1, borderColor: '#cccccc', borderRadius: 50, padding: 1 },
-  addMinusButtonContainer: {
+  button: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    borderRadius: 50,
+    padding: 1,
+  },
+  buttonContainer: {
     marginHorizontal: 10,
+  },
+  buttonTitle: {
+    color: MainColor,
   },
 });

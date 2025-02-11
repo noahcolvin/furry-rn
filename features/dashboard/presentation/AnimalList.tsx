@@ -3,12 +3,12 @@ import { ScrollView, View, Image, Text, StyleSheet } from 'react-native';
 
 export default function AnimalList() {
   const animals = [
-    { id: 1, type: 'dog', image: require(`../assets/images/animal-types/dog.jpg`) },
-    { id: 2, type: 'cat', image: require(`../assets/images/animal-types/cat.jpg`) },
-    { id: 3, type: 'hamster', image: require(`../assets/images/animal-types/hamster.jpg`) },
-    { id: 4, type: 'snake', image: require(`../assets/images/animal-types/snake.jpg`) },
-    { id: 5, type: 'ferret', image: require(`../assets/images/animal-types/ferret.jpg`) },
-    { id: 6, type: 'fish', image: require(`../assets/images/animal-types/fish.jpg`) },
+    { id: 1, type: 'dog', image: require(`@/assets/images/animal-types/dog.jpg`) },
+    { id: 2, type: 'cat', image: require(`@/assets/images/animal-types/cat.jpg`) },
+    { id: 3, type: 'hamster', image: require(`@/assets/images/animal-types/hamster.jpg`) },
+    { id: 4, type: 'snake', image: require(`@/assets/images/animal-types/snake.jpg`) },
+    { id: 5, type: 'ferret', image: require(`@/assets/images/animal-types/ferret.jpg`) },
+    { id: 6, type: 'fish', image: require(`@/assets/images/animal-types/fish.jpg`) },
   ];
 
   return (
