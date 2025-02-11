@@ -1,50 +1,48 @@
-# Welcome to your Expo app 👋
+# Furry - React Native
+
+This is a sample mobile app named `Furry`, a (very) basic pet store. This is not intended to be a complete application, but rather a starting point for a full application.
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Features
 
-1. Install dependencies
+- Dashboard page
+- List of store items with filtering
+- Item detail page
+- Cart page
+- Item search
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## How to run
 
 ```bash
-npm run reset-project
+npm install
+npm run android
+npm run ios
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Running Tests
+```bash
+npm test
+```
 
-## Learn more
+## Questions
+#### What is the purpose of this project?
+I created this project to demonstrate creating a simple mobile app in React Native.
 
-To learn more about developing your project with Expo, look at the following resources:
+I made one in [Flutter too](https://github.com/noahcolvin/furry_flutter)!
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+#### Why isn't there much here?
+This is just a starting point. I wanted to keep it simple and not include too many features. This is a good starting point for a full application.
 
-## Join the community
+#### Where is the backend?
+There are two, currently:
 
-Join our community of developers creating universal apps.
+[Supabase/Node](https://github.com/noahcolvin/furry-backend)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+[.NET](https://github.com/noahcolvin/furry-backend-dotnet)
+
+#### Why is there no authentication?
+No need for the current app.
+
+#### Code X is bad, why didn't you do Y?
+This is just a sample exercise and was completed in a few days. I'm sure there are many improvements that could be made. Fell free to make an issue or PR if you have a suggestion. This doesn't need to be perfect but I am certainly open to feedback. I may add to it in the future.
