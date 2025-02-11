@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
 
 export default function Cart() {
-  const cartData = useCartData(state => state.data);
+  const cartData = useCartData((state) => state.data);
   const itemArray = Array.from(cartData.items.keys());
 
   const clearCart = useCartData(state => state.clearCart);
@@ -17,20 +17,19 @@ export default function Cart() {
     <View style={styles.container}>
       <Text style={styles.title}>Your Items</Text>
       <Divider />
-      <FlatList data={itemArray} keyExtractor={(item, _) => item.id} renderItem={({ item }) => <CartItem item={item} count={cartData.items.get(item) ?? 0} />} contentContainerStyle={styles.list} showsVerticalScrollIndicator={false} />
+      <FlatList
+        data={itemArray}
+        keyExtractor={(item, _) => item.id}
+        renderItem={({ item }) => <CartItem item={item} count={cartData.items.get(item) ?? 0} />}
+        contentContainerStyle={styles.list}
+        showsVerticalScrollIndicator={false}
+      />
       <Divider width={5} />
       <CartSummary cart={cartData} />
       <Button
         title="Complete Order"
-        buttonStyle={{
-          backgroundColor: 'blue',
-          borderWidth: 2,
-          borderColor: 'white',
-          borderRadius: 30,
-        }}
-        containerStyle={{
-          marginVertical: 10,
-        }}
+        buttonStyle={styles.button}
+        containerStyle={styles.buttonContainer}
         titleStyle={{ fontWeight: 'bold' }}
         onPress={() => {
           clearCart();
@@ -54,5 +53,14 @@ const styles = StyleSheet.create({
   },
   list: {
     flexGrow: 1,
+  },
+  button: {
+    backgroundColor: 'blue',
+    borderWidth: 2,
+    borderColor: 'white',
+    borderRadius: 30,
+  },
+  buttonContainer: {
+    marginVertical: 10,
   },
 });
