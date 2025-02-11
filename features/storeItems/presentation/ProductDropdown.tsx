@@ -35,7 +35,14 @@ export default function ProductDropdown() {
           setIsFocus(false);
           fetchStoreItems({ product: item.value });
         }}
-        renderLeftIcon={() => <FontAwesome5 name="store" size={20} color="black" style={styles.icon} />}
+        renderLeftIcon={() => (
+          <FontAwesome5
+            name="store"
+            size={20}
+            color="black"
+            style={styles.icon}
+          />
+        )}
       />
     </View>
   );
@@ -43,7 +50,8 @@ export default function ProductDropdown() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingBottom: 4,
     width: '45%',
   },
   dropdown: {

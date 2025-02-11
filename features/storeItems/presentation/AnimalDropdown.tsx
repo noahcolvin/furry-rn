@@ -41,7 +41,9 @@ export default function AnimalDropdown() {
           setIsFocus(false);
           fetchStoreItems({ animal: item.value });
         }}
-        renderLeftIcon={() => <FontAwesome name="paw" size={20} color="black" style={styles.icon} />}
+        renderLeftIcon={() => (
+          <FontAwesome name="paw" size={20} color="black" style={styles.icon} />
+        )}
       />
     </View>
   );
@@ -49,7 +51,8 @@ export default function AnimalDropdown() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingBottom: 4,
     width: '45%',
   },
   dropdown: {
