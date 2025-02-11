@@ -13,17 +13,23 @@ const initialState: MyFavoriteItemsState = {
   },
 };
 
-export const useMyFavoriteItemsData = create<MyFavoriteItemsState>((set, get) => ({
-  ...initialState,
+export const useMyFavoriteItemsData = create<MyFavoriteItemsState>(
+  (set, get) => ({
+    ...initialState,
 
-  fetchFavoriteItems: async () => {
-    set({ loading: true });
-    try {
-      const res = await getMyFavoriteItems();
-      set({ loading: false, success: true, data: res });
-    } catch (err: any) {
-      console.error('Error in data fetch:', err);
-      set({ loading: false, success: false, error: true, errorData: err.message });
-    }
-  },
-}));
+    fetchFavoriteItems: async () => {
+      set({ loading: true });
+      try {
+        const res = await getMyFavoriteItems();
+        set({ loading: false, success: true, data: res });
+      } catch (err: any) {
+        set({
+          loading: false,
+          success: false,
+          error: true,
+          errorData: err.message,
+        });
+      }
+    },
+  })
+);

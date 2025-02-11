@@ -20,9 +20,7 @@ export default function StoreItemDetail({ item }: { item: StoreItem }) {
       (width, height) => {
         setImageHeight(containerDimensions.width * (height / width));
       },
-      error => {
-        console.error('Error getting image size:', error);
-      }
+      error => {}
     );
   }, [item, containerDimensions]);
 

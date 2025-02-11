@@ -4,7 +4,10 @@ import { useEffect, useState } from 'react';
 
 export default function MyFriendDetail({ friend }: { friend: MyFriend }) {
   const [imageHeight, setImageHeight] = useState(0);
-  const [containerDimensions, setContainerDimensions] = useState({ width: 0, height: 0 });
+  const [containerDimensions, setContainerDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     Image.getSize(
@@ -12,9 +15,7 @@ export default function MyFriendDetail({ friend }: { friend: MyFriend }) {
       (width, height) => {
         setImageHeight(containerDimensions.width * (height / width));
       },
-      error => {
-        console.error('Error getting image size:', error);
-      }
+      error => {}
     );
   }, [friend, containerDimensions]);
 
@@ -31,7 +32,9 @@ export default function MyFriendDetail({ friend }: { friend: MyFriend }) {
           style={[
             styles.image,
             {
-              width: containerDimensions.width - styles.imageContainer.borderWidth * 2,
+              width:
+                containerDimensions.width -
+                styles.imageContainer.borderWidth * 2,
               height: imageHeight,
             },
           ]}

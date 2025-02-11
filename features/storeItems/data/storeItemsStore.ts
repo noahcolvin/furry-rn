@@ -52,7 +52,6 @@ export const useStoreItemData = create<StoreItemState>((set, get) => ({
       });
       set({ loading: false, success: true, data: res });
     } catch (err: any) {
-      console.error('Error in data fetch:', err);
       set({
         loading: false,
         success: false,
