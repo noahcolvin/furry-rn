@@ -40,6 +40,12 @@ export default function RootLayout() {
           title: 'Cart',
         }}
       />
+      <Stack.Screen
+        name="+not-found"
+        options={{
+          title: 'Not Available',
+        }}
+      />
     </Stack>
   );
 }
