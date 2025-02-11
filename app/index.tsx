@@ -14,7 +14,7 @@ export default function Index() {
         <AnimalList />
         <Text style={styles.headerText}>Your favorites</Text>
         <MyFavoriteItems />
-        <Image source={require('../assets/images/pet_insurance.png')} style={styles.ad} />
+        <Image source={require('../assets/images/pet_insurance.png')} style={styles.ad} testID="ad-image" />
         <Text style={styles.headerText}>Your furry friends</Text>
         <MyFriendList />
       </ScrollView>

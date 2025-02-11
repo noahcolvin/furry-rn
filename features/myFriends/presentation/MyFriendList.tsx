@@ -22,7 +22,7 @@ export default function MyFriendList() {
           style={styles.animalLink}
         >
           <View style={styles.animal}>
-            <Image source={{ uri: friend.image }} style={styles.image} />
+            <Image source={{ uri: friend.image }} style={styles.image} testID="friend-image" />
             <Text style={styles.text}>{friend.name}</Text>
           </View>
         </Link>

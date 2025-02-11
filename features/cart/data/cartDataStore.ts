@@ -21,32 +21,22 @@ export const useCartData = create<CartState>((set, get) => ({
   ...initialState,
 
   addToCart: (item: StoreItem) => {
-    try {
-      const data = get().data;
-      const newItems = new Map(data.items);
-      newItems.set(item, (newItems.get(item) || 0) + 1);
-      set({ data: new Cart(newItems) });
-    } catch (err: any) {
-      console.error('Error in adding to cart:', err);
-      set({ errorData: err.message });
-    }
+    const data = get().data;
+    const newItems = new Map(data.items);
+    newItems.set(item, (newItems.get(item) || 0) + 1);
+    set({ data: new Cart(newItems) });
   },
 
   removeFromCart: (item: StoreItem) => {
-    try {
-      const data = get().data;
-      const newItems = new Map(data.items);
-      const count = newItems.get(item);
-      if (count && count > 1) {
-        newItems.set(item, count - 1);
-      } else {
-        newItems.delete(item);
-      }
-      set({ data: new Cart(newItems) });
-    } catch (err: any) {
-      console.error('Error in removal:', err);
-      set({ errorData: err.message });
+    const data = get().data;
+    const newItems = new Map(data.items);
+    const count = newItems.get(item);
+    if (count && count > 1) {
+      newItems.set(item, count - 1);
+    } else {
+      newItems.delete(item);
     }
+    set({ data: new Cart(newItems) });
   },
 
   clearCart: () => {
