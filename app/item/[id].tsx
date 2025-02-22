@@ -7,11 +7,12 @@ import { ScrollView, StyleSheet } from 'react-native';
 export default function Id() {
   const { id } = useLocalSearchParams();
   const { data, success, fetchStoreItems } = useStoreItemData();
-  const item = data?.find(item => item.id === id);
+  const itemId = parseInt(id as string, 10);
+  const item = data?.find(item => item.id === itemId);
 
   useEffect(() => {
     if (!item) fetchStoreItems({ animal: 'all', product: 'all' });
-  }, []);
+  }, [item]);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
